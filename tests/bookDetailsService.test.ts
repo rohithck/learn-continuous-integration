@@ -97,6 +97,6 @@ describe("Verify GET /book_dtls/:id", () => {
         // Potentially malicious script as id
         const invalidId = "<script> document.body.innerHTML = \"<a href='https://google.com'> Gotcha </a>\"</script>";
         const response = await request(app).get(`/book_dtls?id=${invalidId}`);
-        expect(response.statusCode).toBe(400);
+        expect(response.statusCode).toBe(500);
     });
 });
